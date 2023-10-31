@@ -1,7 +1,7 @@
 # sleepoutside
 
 ## Production URL:
- - https://aesthetic-scone-bb0a43.netlify.app/[https://aesthetic-scone-bb0a43.netlify.app/]
+ - https://aesthetic-scone-bb0a43.netlify.app
 
 ## Description
 
