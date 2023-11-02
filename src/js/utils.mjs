@@ -7,7 +7,7 @@ export function qs(selector, parent = document) {
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
-  var cartArray = JSON.parse(localStorage.getItem(key))
+  var cartArray = JSON.parse(localStorage.getItem(key) || "[]");
   if (cartArray == null) {
     cartArray = []
   }
