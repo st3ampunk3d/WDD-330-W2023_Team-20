@@ -37,7 +37,9 @@ function cartTotal(item){
     return cart
   })  
 
-  price = price + parseFloat(cartItem);
+  cartItem.forEach( element => {
+    price = price + element
+  })
   return price;
 
 }
