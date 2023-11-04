@@ -31,15 +31,10 @@ function cartItemTemplate(item) {
 function cartTotal(item){
 
   let price = 0;
-  let cartItem = item.map((items) => {
-    let cart = items.FinalPrice;
+  item.map((items) => {
+    price = price + items.FinalPrice;
 
-    return cart
   })  
-
-  cartItem.forEach( element => {
-    price = price + element
-  })
   return price;
 
 }
