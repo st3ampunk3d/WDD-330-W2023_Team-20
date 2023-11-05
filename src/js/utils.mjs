@@ -26,9 +26,7 @@ export function setLocalStorage(key, data, action = "add") {
       cartArray.push(data);
     } else {
       const index = cartArray.findIndex((item) => item.Id === data.Id);
-      if (index !== -1) {
         cartArray.splice(index, 1);
-      }
     }
 
     localStorage.setItem(key, JSON.stringify(cartArray));
