@@ -35,7 +35,7 @@ function cartTotal(item){
     price = price + items.FinalPrice;
 
   })  
-  return price;
+  return price.toFixed(2);
 
 }
 
