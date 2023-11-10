@@ -22,12 +22,13 @@ export function setLocalStorage(key, data, action = "add") {
       cartArray = []; // Initialize as an empty array if it's not an array
     }
 
-    if (action === "add") {
-      cartArray.push(data);
+    if (action == "add") {
+      cartArray.push(data)
     } else {
-      const index = cartArray.findIndex((item) => item.Id === data.Id);
-        cartArray.splice(index, 1);
+      const index = cartArray.map(item => item.Id).indexOf(data)
+      cartArray.splice(index, 1)
     }
+    
 
     localStorage.setItem(key, JSON.stringify(cartArray));
   } catch (error) {
@@ -57,5 +58,3 @@ export function renderListWithTemplates(templateFn, parentElement, list, positio
     parentElement.innerHTML = "";
   }
     parentElement.insertAdjacentHTML(position, dataObject.join(" "));
-  
-}
