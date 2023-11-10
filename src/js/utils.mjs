@@ -45,25 +45,16 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-export function getParam(param) {
+export function getParams(param){
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get('product')
-
-  return product
+  const product = urlParams.get(param);
+  return product;
 }
 
-
-export function renderListWithTemplate(
-  templateFn,
-  parentElement,
-  list,
-  position = "afterbegin",
-  clear = false
-) {
-  const htmlStrings = list.map(templateFn);
-  if (clear) {
+export function renderListWithTemplates(templateFn, parentElement, list, position = "afterbegin", clear = false){
+  const dataObject = list.map(templateFn);
+  if(clear = true){
     parentElement.innerHTML = "";
   }
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
-}
+    parentElement.insertAdjacentHTML(position, dataObject.join(" "));

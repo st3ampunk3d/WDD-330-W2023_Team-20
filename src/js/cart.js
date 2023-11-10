@@ -37,8 +37,9 @@ function cartTotal(item) {
   let price = 0;
   item.map((items) => {
     price = price + items.FinalPrice;
-  });
-  return price;
+
+  });  
+  return price.toFixed(2);
 }
 
 renderCartContents();
