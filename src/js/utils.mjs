@@ -22,12 +22,13 @@ export function setLocalStorage(key, data, action = "add") {
       cartArray = []; // Initialize as an empty array if it's not an array
     }
 
-    if (action === "add") {
-      cartArray.push(data);
+    if (action == "add") {
+      cartArray.push(data)
     } else {
-      const index = cartArray.findIndex((item) => item.Id === data.Id);
-        cartArray.splice(index, 1);
+      const index = cartArray.map(item => item.Id).indexOf(data)
+      cartArray.splice(index, 1)
     }
+    
 
     localStorage.setItem(key, JSON.stringify(cartArray));
   } catch (error) {
@@ -42,4 +43,27 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener("click", callback);
+}
+
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get('product')
+
+  return product
+}
+
+
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = false
+) {
+  const htmlStrings = list.map(templateFn);
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
