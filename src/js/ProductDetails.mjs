@@ -4,12 +4,16 @@ import { setLocalStorage } from "./utils.mjs";
 function htmlTemplate(product){
     const template = `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
-    <img
-      class="divider"
-      src="${product.Image}"
-      alt="${product.NameWithoutBrand}"
-    />
-    <p class="product-card__price">$${product.FinalPrice}</p>
+    <div class="box">
+      <img
+        class="divider"
+        src="${product.Image}"
+        alt="${product.NameWithoutBrand}"/>
+      <div class="ribbon-container">
+        <span class="ribbon">%${((product.FinalPrice / product.SuggestedRetailPrice)*100).toFixed(0)} OFF</span>
+      </div>
+    </div>
+    <p class="price"><s class="discount">$${product.SuggestedRetailPrice}</s> - $${product.FinalPrice}</p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}
