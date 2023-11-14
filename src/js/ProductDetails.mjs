@@ -7,7 +7,7 @@ function htmlTemplate(product){
     <div class="box">
       <img
         class="divider"
-        src="${product.Image}"
+        src="${product.Images['PrimaryLarge']}"
         alt="${product.NameWithoutBrand}"/>
       <div class="ribbon-container">
         <span class="ribbon">%${((1-(product.FinalPrice / product.SuggestedRetailPrice))*100).toFixed(0)} OFF</span>

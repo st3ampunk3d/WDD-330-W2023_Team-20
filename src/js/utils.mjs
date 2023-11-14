@@ -55,13 +55,19 @@ export function getParams(param){
   return product;
 }
 
-export function renderListWithTemplates(templateFn, parentElement, list, position = "afterbegin", clear = false){
-  const dataObject = list.map(templateFn);
-  if(clear == true){
+export function renderListWithTemplates(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = false
+) {
+  const htmlStrings = list.map(templateFn);
+  // if clear is true we need to clear out the contents of the parent.
+  if (clear) {
     parentElement.innerHTML = "";
   }
-    parentElement.insertAdjacentHTML(position, dataObject.join(" "));
-
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
 export function updateCartIcon() {
