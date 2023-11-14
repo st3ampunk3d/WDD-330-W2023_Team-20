@@ -31,6 +31,9 @@ export function setLocalStorage(key, data, action = "add") {
     
 
     localStorage.setItem(key, JSON.stringify(cartArray));
+    console.log(cartArray.length)
+    updateCartIcon()
+    animateCartIcon()
   } catch (error) {
     console.error(error);
   }
@@ -59,4 +62,32 @@ export function renderListWithTemplates(templateFn, parentElement, list, positio
   }
     parentElement.insertAdjacentHTML(position, dataObject.join(" "));
 
+}
+
+export function updateCartIcon() {
+  const cartArray = getLocalStorage("so-cart")
+
+  console.log("triggered")
+  document.querySelector(".badge").setAttribute("value", cartArray.length)
+}
+
+function animateCartIcon() {
+  let element = document.getElementById("cart-icon")
+  element.style.transition="all 1s"
+  element.style.fill="red"
+  element.style.width="30px"
+  element.setAttribute("transform", "rotate(15)")
+  setTimeout(function() {
+    element.setAttribute("transform", "rotate(-15)")
+  }, 500)
+  setTimeout(function() {
+    element.setAttribute("transform", "rotate(0)")
+  }, 1000)
+  setTimeout(function() {
+    element.style.fill="black"
+    element.style.width="25px"
+  }, 2000)
+  setTimeout(function() {
+    element.style.setProperty('transition', 'initial')
+  }, 3000)
 }

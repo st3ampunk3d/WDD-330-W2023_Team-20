@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, updateCartIcon } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -37,8 +37,7 @@ function cartTotal(item) {
   let price = 0;
   item.map((items) => {
     price = price + items.FinalPrice;
-
-  });  
+  });
   return price.toFixed(2);
 }
 
@@ -96,3 +95,5 @@ function itemQuantity(data) {
 
   return [map, newArray];
 }
+
+window.onload = updateCartIcon;

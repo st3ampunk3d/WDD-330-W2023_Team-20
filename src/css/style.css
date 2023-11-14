@@ -103,13 +103,30 @@ button {
   text-align: center;
 }
 
-.cart svg {
+#cart-icon {
   width: 25px;
 }
-.cart:hover svg {
-  fill: gray;
+.cart:hover #cart-icon {
+  transition: initial;
+  fill: gray !important;
 }
 
+.badge:after {
+  display: inline-block;
+  color: #603283;
+  font-weight: bold;
+  content: attr(value);
+  font-size: 12px;
+  background: #ff942e;
+  border-radius: 50%;
+  height: 13px;
+  width: 13px;
+  padding: 4px;
+  position: relative;
+  left: -10px;
+  top: -20px;
+  opacity: 0.8;
+}
 /* End cart icon styles */
 
 .mission {
