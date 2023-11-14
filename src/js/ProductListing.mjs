@@ -6,13 +6,20 @@ export default class ProductListing{
     ProductCardTemplate(product){
         return `<li class="product-card">
         <a href="product_pages/index.html?product=${product.Id}">
-          <img src="${product.Image}" alt="${product.NameWithoutBrand}">
+        <div class="box">
+        <img src="${product.Image}" alt="${product.NameWithoutBrand}">
+            <div class="ribbon-container">
+                <span class="ribbon">${((1-(product.FinalPrice / product.SuggestedRetailPrice))*100).toFixed(0)}% OFF</span>
+            </div>
+        </div>
           <h3 class="card__brand">${product.Brand.Name}</h3>
           <h2 class="card__name">${product.NameWithoutBrand}</h2>
-          <p class="product-card__price">${product.FinalPrice}</p>
-        </a>
+          <p class="price"><s class="discount">$${product.SuggestedRetailPrice}</s> - $${product.FinalPrice}</p>
+          </a>
       </li>`
     }
+    
+    
     renderList(list){
         renderListWithTemplates(this.ProductCardTemplate, this.ProductElement, list);
     }

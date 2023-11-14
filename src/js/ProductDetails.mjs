@@ -10,7 +10,7 @@ function htmlTemplate(product){
         src="${product.Image}"
         alt="${product.NameWithoutBrand}"/>
       <div class="ribbon-container">
-        <span class="ribbon">%${((product.FinalPrice / product.SuggestedRetailPrice)*100).toFixed(0)} OFF</span>
+        <span class="ribbon">%${((1-(product.FinalPrice / product.SuggestedRetailPrice))*100).toFixed(0)} OFF</span>
       </div>
     </div>
     <p class="price"><s class="discount">$${product.SuggestedRetailPrice}</s> - $${product.FinalPrice}</p>
