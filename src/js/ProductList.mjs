@@ -9,7 +9,7 @@ export default class ProductListing{
         <div class="box">
         <img src="${product.Image}" alt="${product.NameWithoutBrand}">
             <div class="ribbon-container">
-                <span class="ribbon">%${((product.FinalPrice / product.SuggestedRetailPrice)*100).toFixed(0)} OFF</span>
+                <span class="ribbon">${((1-(product.FinalPrice / product.SuggestedRetailPrice))*100).toFixed(0)}% OFF</span>
             </div>
         </div>
           <h3 class="card__brand">${product.Brand.Name}</h3>
