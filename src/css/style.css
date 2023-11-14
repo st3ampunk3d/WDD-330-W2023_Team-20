@@ -237,3 +237,17 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.ribbon-container{
+  background-color: rgba(255, 0, 0, 0.682);
+  padding: .5rem;
+  color: white;
+  border-radius: 9px;
+}
+
+.price{
+  color: red;
+}
+.discount{
+  color: black;
+}
