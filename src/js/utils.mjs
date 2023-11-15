@@ -25,13 +25,14 @@ export function setLocalStorage(key, data, action = "add") {
     if (action == "add") {
       cartArray.push(data)
     } else {
-      const index = cartArray.map(item => item.Id).indexOf(data)
+      console.log(data)
+      const index = cartArray.findIndex((item) => item.Id == data.Id)
+      console.log(index)
       cartArray.splice(index, 1)
     }
     
 
     localStorage.setItem(key, JSON.stringify(cartArray));
-    console.log(cartArray.length)
     updateCartIcon()
     animateCartIcon()
   } catch (error) {
@@ -102,8 +103,6 @@ export async function loadHeaderFooter() {
 
 export function updateCartIcon() {
   const cartArray = getLocalStorage("so-cart")
-
-  console.log("triggered")
   document.querySelector(".badge").setAttribute("value", cartArray.length)
 }
 
