@@ -222,6 +222,8 @@ button {
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
+  width: 80%;
+  margin: auto;
 }
 
 .cart-card__image {
@@ -244,11 +246,23 @@ button {
 .cart-card__quantity {
   grid-row: 1;
   grid-column: 3;
+  text-align: right;
+}
+
+.cart-card__quantity input{
+  width: 45px;
 }
 
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
+  text-align: right;
+}
+
+.cartTotal {
+  width: 80%;
+  margin: auto;
+  text-align: right;
 }
 
 @media screen and (min-width: 500px) {

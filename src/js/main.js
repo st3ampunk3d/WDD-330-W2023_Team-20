@@ -1,3 +1,3 @@
-import { updateCartIcon } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
-window.onload = updateCartIcon;
+loadHeaderFooter();
