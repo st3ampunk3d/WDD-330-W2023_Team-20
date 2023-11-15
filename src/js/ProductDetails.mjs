@@ -1,5 +1,4 @@
 import { setLocalStorage } from "./utils.mjs";
-// import {findProductById} from "./utils.mjs"
 
 function htmlTemplate(product){
     const template = `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -7,7 +6,7 @@ function htmlTemplate(product){
     <div class="box">
       <img
         class="divider"
-        src="${product.Image}"
+        src="${product.Images['PrimaryLarge']}"
         alt="${product.NameWithoutBrand}"/>
       <div class="ribbon-container">
         <span class="ribbon">%${((1-(product.FinalPrice / product.SuggestedRetailPrice))*100).toFixed(0)} OFF</span>
@@ -34,7 +33,7 @@ export default class ProductDetails{
     
     async init(){
         this.product = await this.dataSource.findProductById(this.productId);
-        this.renderProductDetails(".divider")
+        this.renderProductDetails(".main-body")
         document
             .getElementById("addToCart")
             .addEventListener("click", this.addToCart.bind(this));
@@ -49,4 +48,5 @@ export default class ProductDetails{
       const main = document.querySelector(element);
       main.insertAdjacentHTML("afterbegin", htmlTemplate(this.product));
     }
+    
 }
