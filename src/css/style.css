@@ -129,6 +129,10 @@ button {
 }
 /* End cart icon styles */
 
+.sort-menu {
+  text-align: right;
+}
+
 .product-grid {
   list-style-type: none;
   display: flex;
