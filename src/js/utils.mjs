@@ -98,7 +98,7 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement)
   renderWithTemplate(footerTemplate, footerElement)
 
-  window.onload = updateCartIcon;
+  window.onload = updateCartIcon();
 }
 
 export function updateCartIcon() {
