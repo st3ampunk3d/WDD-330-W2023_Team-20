@@ -38,22 +38,16 @@ export default class ProductList {
 
     var e = document.getElementById("sort");
     var option = e.options[e.selectedIndex].text;
-    console.log(option)
     list.sort((a,b) => {
       let fa = a.NameWithoutBrand.toLowerCase()
       let fb = b.NameWithoutBrand.toLowerCase()
     
       if (option == "Price") {
-        console.log("sorting by price")
          return Number(a.FinalPrice) - Number(b.FinalPrice)
       }
       if (option == "Brand") {
-        console.log("sorting by Brand")
         fa = a.Brand.Name.toLowerCase()
         fb = b.Brand.Name.toLowerCase()
-      }
-      if (option == "Name") {
-        console.log("default sort")
       }
     
       return fa.localeCompare(fb)
@@ -64,6 +58,6 @@ export default class ProductList {
 
   renderList(list) {
     renderListWithTemplates(productCardTemplate, this.listElement, list);
-    document.querySelector(".title").innerHTML = this.category;
+    document.querySelector(".title").innerHTML = this.category.charAt(0).toUpperCase() + this.category.slice(1);
   }
 }
