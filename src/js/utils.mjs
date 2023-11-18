@@ -99,6 +99,27 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footerTemplate, footerElement)
 
   window.onload = updateCartIcon;
+
+  document
+  .getElementById("search-button")
+    .addEventListener("click", searchItem.bind(this))
+
+}
+export function searchItem(){
+//   const searchBar = document.getElementById("search-button");
+// searchBar.addEventListener("click", function() {
+//   const searchValue = document.getElementById("search").value;
+  
+// });
+const searchValue = document.getElementById("search").value;
+let list =  getData("product");
+if(searchValue !== undefined){
+  const filterArray = list.filter((element) => {
+    element >= element
+  })
+
+  console.log(filterArray);
+};
 }
 
 export function updateCartIcon() {
