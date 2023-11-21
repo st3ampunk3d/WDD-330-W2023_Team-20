@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Checkout</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
 
   <body>
@@ -14,6 +14,55 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+      <form action="submit">
+        <fieldset>
+          <legend>Customer Info</legend>
+          <label for="first-name">First name</label>
+          <input type="text" name="firstName" required>
+          <label for="Last-name">Last Name</label>
+          <input type="text" name="LastName" required>
+        </fieldset>
+        <fieldset>
+            <label for="strre-adress">Street address</label>
+            <input type="text" name="StreetAddress" required>
+            <label for="city">City</label>
+            <input type="text" name="city" required>
+            <label for="state">State</label>
+            <input type="text" name="State" required>
+            <label for="zip-code">Zip code</label>
+            <input type="number" name="zipcCode" required>
+        </fieldset>
+        <fieldset>
+          <legend>Payment Information</legend>
+          <label for="crdInfo">Card Information</label>
+          <input type="number" name="cardNum" required>
+          <label for="expInfo">expiration date</label>
+          <input type="text" name="expDate" required>
+          <label for="SecurityNum">Security code</label>
+          <input type="number" name="securityNum" required>
+        </fieldset>
+      </form>
+      <fieldset class="sumarry">
+        <legend>Order Summary</legend>
+        <ul>
+          <li>
+            <label for="carTotal">Item Subtotal<span id="SubNum"></span></label>
+            <p name="cartTotal" id="CartTotal"></p>
+          </li>
+          <li>
+            <label for="shipping">Shipping Estimate</label>
+            <p id="shipping"></p>
+          </li>
+          <li>
+            <label for="TaxTotal"><b>Tax Total</b></label>
+            <p id="taxTotal"></p>
+          </li>
+          <li>
+            <label for="orderTotal"><b>Order Total</b></label>
+            <p id="orderTotal"></p>
+          </li>
+        </ul> 
+      </fieldset>
     </main>
     <footer id="main-footer"></footer>
   </body>
