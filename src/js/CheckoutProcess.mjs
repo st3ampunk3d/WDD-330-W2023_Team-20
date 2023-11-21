@@ -2,10 +2,12 @@ import { getLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const service = new ExternalServices();
+
 function formDataJason(formElement){
-    const formJason = new formJason(formElement);
-    const convertedJSON = [];
-    formJason.forEach(function(value, key){
+    const formJson = new FormData(formElement);
+    const convertedJSON = {};
+
+    formJson.forEach(function(value, key){
         convertedJSON[key] = value;
     });
 
@@ -35,32 +37,34 @@ export default class CheckoutProcess{
     }
 
     init(){
-        this.list = getLocalStorage(this.key)
+        this.list = getLocalStorage(this.key);
         this.calculateOrderSummery();
     }
     calculateOrderSummery(){
-            const itemTotal = document.querySelector(this.outputConstructor + "#cartTotal");
-            const SubNum = document.querySelector(this.outputConstructor + "#SubNum");
+            const  sumItem= document.querySelector("#cartTotal");
+            const subNum = document.querySelector("#subNum");
             
-            SubNum.textContent = this.list.length;
-            const amount =  this.list.map((element)  => element.finalPrice);
+            subNum.textContent = this.list.length;
+            const amount =  this.list.map((item)  => item.FinalPrice);
             this.itemTotal = amount.reduce((item, sum) =>  sum + item );
-            itemTotal.textContent =`$${this.itemTotal}`
+            sumItem.textContent =`$${this.itemTotal}`
     }
     calculateOrderTotal(){
         this.shipping = 10 + (this.list.length - 1) * 2;
         this.tax = (this.itemTotal * .06).toFixed(2);
-        this.orderTotal = (parseFloat(this.itemTotal) + 
-        parseFloat(this.tax) + parseFloat(this.shipping)).toFixed(2);
+        this.orderTotal = (
+        parseFloat(this.itemTotal) + 
+        parseFloat(this.tax) + 
+        parseFloat(this.shipping)).toFixed(2);
         this.displayOrder(); 
     }
     displayOrder(){
-        const shipping = document.querySelector(this.outputConstructor + "#shipping");
-        const taxTotal = document.querySelector(this.outputConstructor + "#taxTotal");
-        const orderTotal = document.querySelector(this.outputConstructor + "#orderTotal");
-        shipping.textContent = `$${this.shipping}`;
-        taxTotal.textContent = `$${this.tax}`;
-        orderTotal.textContent = `$${this.orderTotal}`;
+        const shipping = document.querySelector( "#shipping");
+        const taxTotal = document.querySelector( "#taxTotal");
+        const orderTotal = document.querySelector( "#orderTotal");
+        shipping.textContent  = `$${this.shipping}`;
+        taxTotal.textContent  = `$${this.tax}`;
+        orderTotal.textContent  = `$${this.orderTotal}`;
     }
     async checkout(){
         const formatedCheckout = document.forms["checkout"];
@@ -72,7 +76,7 @@ export default class CheckoutProcess{
         json.items = packageItems(this.list);
         console.log(json);
         try {
-            const res = await service.checkout(jeson);
+            const res = await service.checkout(json);
             console.log(res)
         } catch (error) {
                 console.log(error);
