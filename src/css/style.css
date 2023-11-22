@@ -77,7 +77,8 @@ header {
 .logo--square > div {
   margin-top: -1.7em;
 }
-.search-wraper{
+
+.search-wraper {
   align-self: center;
   font-size: 1em;
   display: flex;
@@ -260,7 +261,7 @@ button {
   text-align: right;
 }
 
-.cart-card__quantity input{
+.cart-card__quantity input {
   width: 45px;
 }
 
@@ -308,6 +309,7 @@ footer {
 .discount {
   color: black;
 }
+
 .checkout-button:link, .checkout-button:visited{
   background-color: #525b0f;
   color: #f0a868;
@@ -319,4 +321,50 @@ footer {
 }
 .checkout-button:hover, .checkout-button:active{
   background-color: red;
+
+#billing-info label{
+  display: block;
+  text-align: left;
+  margin-left: 35px;
+}
+
+#billing-info {
+  width: 80%;
+  min-width: 400px;
+  margin: auto;
+  
+}
+
+#billing-info fieldset{
+  width: 400px;
+  margin: 25px auto;
+  text-align: center;
+  
+}
+
+.summary {
+  width: 300px;
+  text-align: right;
+  margin: 20px auto;
+  list-style-type: none;
+}
+
+#billing-info input, #billing-info select {
+  width: 300px;
+  margin: 0 auto 20px auto;
+}
+
+.alert {
+  width: 400px;
+  background: orange;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  padding:10px;
+  margin: 5px auto;
+}
+
+.alert span {
+  grid-column: 2;
+  text-align: right;
 }

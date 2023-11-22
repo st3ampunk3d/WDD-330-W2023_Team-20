@@ -25,6 +25,7 @@ export default class ShoppingCart {
     }
     async init() {
         const [map, list] = this.consolidateDuplicates(this.dataSource)
+        console.log(this.dataSource)
         this.renderList(list)
 
         document.querySelector(".cartTotal").innerHTML = `Total: $${cartTotal(getLocalStorage("so-cart"))}`
@@ -51,7 +52,6 @@ export default class ShoppingCart {
           item.addEventListener('input', function updateThings() {
             quantity = map.get(list[index].Id)
             if (quantity < item.value) {
-              console.log(item.value, quantity)
               var toAdd = Number(item.value)-quantity
               let i = 0
               while (i < toAdd) {
@@ -60,7 +60,6 @@ export default class ShoppingCart {
                 i++
               }
             } else if (quantity > item.value) {
-              console.log("decrease")
               const toRemove = quantity-item.value
               let i = 0
               while (i < toRemove) {

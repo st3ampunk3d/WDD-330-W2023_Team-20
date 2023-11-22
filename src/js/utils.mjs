@@ -25,9 +25,7 @@ export function setLocalStorage(key, data, action = "add") {
     if (action == "add") {
       cartArray.push(data)
     } else {
-      console.log(data)
       const index = cartArray.findIndex((item) => item.Id == data.Id)
-      console.log(index)
       cartArray.splice(index, 1)
     }
     
@@ -99,11 +97,48 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footerTemplate, footerElement)
 
   window.onload = updateCartIcon();
+
+  // document
+  // .getElementById("search-button")
+  //   .addEventListener("click", searchItem.bind(this))
+
 }
+// export function searchItem(){
+// //   const searchBar = document.getElementById("search-button");
+// // searchBar.addEventListener("click", function() {
+// //   const searchValue = document.getElementById("search").value;
+  
+// // });
+// const searchValue = document.getElementById("search").value;
+// let list =  getData("product");
+// if(searchValue !== undefined){
+//   const filterArray = list.filter((element) => {
+//     element >= element
+//   })
+
+//   console.log(filterArray);
+// };
+// }
 
 export function updateCartIcon() {
   const cartArray = getLocalStorage("so-cart")
   document.querySelector(".badge").setAttribute("value", cartArray.length)
+}
+
+export function alertMessage (message, scroll = true) {
+  const alert = document.createElement('div')
+  const main = document.querySelector("main")
+  alert.classList.add('alert')
+
+  alert.innerHTML = `${message}<span>X</span>`
+
+  alert.addEventListener('click', (e) => {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(alert)
+    }
+  })
+  main.prepend(alert)
+  if (scroll) window.scrollTo(0,0)
 }
 
 function animateCartIcon() {

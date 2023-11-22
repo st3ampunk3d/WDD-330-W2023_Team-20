@@ -1,76 +1,117 @@
 <!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sleep Outside | Checkout</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/checkout.js" type="module"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sleep Outside | Checkout</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <script src="../js/checkout.js" type="module"></script>
-</head>
-
-<body>
-  <header class="divider" id="main-header"></header>
-  <main class="divider">
-    <h2>Review & Place your Order</h2>
-    <section class="checkout-form">
-      <form name="checkout">
-        <fieldset>
-          <legend>Customer Info</legend>
-          <div class="checkout_name">
-            <label for="first-name">First name</label>
-            <input type="text" name="firstName" required>
-            <label for="Last-name">Last Name</label>
-            <input type="text" name="LastName" required>
-          </div>
-
-          <div class="checkout_adress">
-            <label for="strre-adress">Street address</label>
-            <input type="text" name="StreetAddress" required>
+  <body>
+    <header class="divider" id="main-header"></header>
+    <main class="divider">
+      <section class="products">
+        <h2>Review & Place your Order</h2>
+        <form name="billing-info" id="billing-info" novalidate>
+          <fieldset>
+            <legend>Shipping</legend>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" required />
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" required />
+            <label for="street">Street Address</label>
+            <input type="text" id="street" name="street" required />
             <label for="city">City</label>
-            <input type="text" name="city" required>
+            <input type="text" id="city" name="city" required />
             <label for="state">State</label>
-            <input type="text" name="State" required>
-            <label for="zip-code">Zip code</label>
-            <input type="number" name="zipcCode" id="zip">
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Payment Information</legend>
-          <label for="crdInfo">Card Information</label>
-          <input type="number" name="cardNum" value="1234123412341234" required>
-          <label for="expInfo">expiration date</label>
-          <input type="text" name="expDate" required>
-          <label for="SecurityNum">Security code</label>
-          <input type="number" name="securityNum" value="123" required>
-        </fieldset>
-        <fieldset class="summary">
-          <legend>Order Summary</legend>
-          <ul>
-            <li>
-              <label for="carTotal">Item Subtotal(<span id="subNum"></span>)</label>
-              <p name="cartTotal" id="cartTotal"></p>
-            </li>
-            <li>
-              <label for="shipping">Shipping Estimate</label>
-              <p id="shipping"></p>
-            </li>
-            <li>
-              <label for="TaxTotal"><b>Tax</b></label>
-              <p id="taxTotal"></p>
-            </li>
-            <li>
-              <label for="orderTotal"><b>Order Total</b></label>
-              <p id="orderTotal"></p>
-            </li>
+            <select id="state" name="state" required>
+              <option value=""></option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District Of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+            <label for="zip">Zip</label>
+            <input type="text" id="zip" name="zip" required />
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <label for="cc">Credit Card Number</label>
+            <input type="text" id="cc" name="cardNumber" required />
+            <label for="exp">Expiration Date</label>
+            <input type="text" id="exp" name="expiration" required />
+            <label for="ccv">Security Code</label>
+            <input
+              type="text"
+              id="ccv"
+              name="ccv"
+              minlength="3"
+              maxlength="3"
+              required
+            />
+          </fieldset>
+          <fieldset>
+          <legend>Review</legend>
+          <ul class="summary">
+            <li>Subtotal: <span id="subtotal"></span></li>
+            <li>Shipping Estimate: <span id="shipping"></span></li>
+            <li>Tax: <span id="tax"></span></li>
+            <li>Oder Total: <span id="order-total"></span></li>
           </ul>
-        </fieldset>
-        <button id="checkoutSubmit" type="submit">Checkout</button>
-      </form>
-    </section>
-  </main>
-  <footer id="main-footer"></footer>
-</body>
-
+          <input type="submit" id="checkout" />
+          </fieldset>
+        </form>
+      </section>
+    </main>
+    <footer id="main-footer"></footer>
+  </body>
 </html>
