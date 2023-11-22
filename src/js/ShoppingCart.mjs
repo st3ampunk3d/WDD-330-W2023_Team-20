@@ -25,6 +25,7 @@ export default class ShoppingCart {
     }
     async init() {
         const [map, list] = this.consolidateDuplicates(this.dataSource)
+        console.log(this.dataSource)
         this.renderList(list)
 
         document.querySelector(".cartTotal").innerHTML = `Total: $${cartTotal(getLocalStorage("so-cart"))}`
