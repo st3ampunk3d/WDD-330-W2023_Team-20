@@ -25,9 +25,7 @@ export function setLocalStorage(key, data, action = "add") {
     if (action == "add") {
       cartArray.push(data)
     } else {
-      console.log(data)
       const index = cartArray.findIndex((item) => item.Id == data.Id)
-      console.log(index)
       cartArray.splice(index, 1)
     }
     
@@ -98,7 +96,7 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement)
   renderWithTemplate(footerTemplate, footerElement)
 
-  window.onload = updateCartIcon;
+  window.onload = updateCartIcon();
 
   // document
   // .getElementById("search-button")

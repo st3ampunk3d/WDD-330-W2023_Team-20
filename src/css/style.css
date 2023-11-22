@@ -24,7 +24,6 @@ body {
 }
 img {
   width: 100%;
-  
 }
 header {
   display: flex;
@@ -77,7 +76,7 @@ header {
 .logo--square > div {
   margin-top: -1.7em;
 }
-.search-wraper{
+.search-wraper {
   align-self: center;
   font-size: 1em;
   display: flex;
@@ -260,7 +259,7 @@ button {
   text-align: right;
 }
 
-.cart-card__quantity input{
+.cart-card__quantity input {
   width: 45px;
 }
 
