@@ -321,6 +321,7 @@ footer {
 }
 .checkout-button:hover, .checkout-button:active{
   background-color: red;
+}
 
 #billing-info label{
   display: block;
