@@ -79,6 +79,7 @@ export default class CheckoutProcess {
         json.tax = this.tax;
         json.shipping = this.shipping;
         json.items = packageItems(this.list);
+
         try {
           const res = await services.checkout(json);
           console.log(res);
@@ -88,5 +89,6 @@ export default class CheckoutProcess {
         } catch (err) {
           console.log(err);
         }
+
     }
 }

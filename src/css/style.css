@@ -24,6 +24,7 @@ body {
 }
 img {
   width: 100%;
+  
 }
 header {
   display: flex;
@@ -76,6 +77,7 @@ header {
 .logo--square > div {
   margin-top: -1.7em;
 }
+
 .search-wraper {
   align-self: center;
   font-size: 1em;
@@ -307,6 +309,18 @@ footer {
 .discount {
   color: black;
 }
+
+.checkout-button:link, .checkout-button:visited{
+  background-color: #525b0f;
+  color: #f0a868;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+}
+.checkout-button:hover, .checkout-button:active{
+  background-color: red;
 
 #billing-info label{
   display: block;
