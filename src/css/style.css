@@ -307,3 +307,50 @@ footer {
 .discount {
   color: black;
 }
+
+#billing-info label{
+  display: block;
+  text-align: left;
+  margin-left: 35px;
+}
+
+#billing-info {
+  width: 80%;
+  min-width: 400px;
+  margin: auto;
+  
+}
+
+#billing-info fieldset{
+  width: 400px;
+  margin: 25px auto;
+  text-align: center;
+  
+}
+
+.summary {
+  width: 300px;
+  text-align: right;
+  margin: 20px auto;
+  list-style-type: none;
+}
+
+#billing-info input, #billing-info select {
+  width: 300px;
+  margin: 0 auto 20px auto;
+}
+
+.alert {
+  width: 400px;
+  background: orange;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  padding:10px;
+  margin: 5px auto;
+}
+
+.alert span {
+  grid-column: 2;
+  text-align: right;
+}

@@ -125,6 +125,22 @@ export function updateCartIcon() {
   document.querySelector(".badge").setAttribute("value", cartArray.length)
 }
 
+export function alertMessage (message, scroll = true) {
+  const alert = document.createElement('div')
+  const main = document.querySelector("main")
+  alert.classList.add('alert')
+
+  alert.innerHTML = `${message}<span>X</span>`
+
+  alert.addEventListener('click', (e) => {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(alert)
+    }
+  })
+  main.prepend(alert)
+  if (scroll) window.scrollTo(0,0)
+}
+
 function animateCartIcon() {
   let element = document.getElementById("cart-icon")
   element.style.transition="all 1s"
