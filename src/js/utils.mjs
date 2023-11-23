@@ -99,28 +99,56 @@ export async function loadHeaderFooter() {
   window.onload = updateCartIcon();
 
   document
-  .getElementById("search-button")
-    .addEventListener("click", searchItem.bind(this))
+  .getElementById("search")
+    .addEventListener("input", ()=>{
+      searchItem();
+    })
 
 }
 export function searchItem(){
-//   const searchBar = document.getElementById("search-button");
-// searchBar.addEventListener("click", function() {
-  
-// });
-const searchValue = document.getElementById("search").value;
-const tent =  getData("tent");
-const bags =  getData("bags");
-const sleepingBag =  getData("sleeping-bag");
-const hammocks =  getData("product");
 
-if(searchValue !== undefined){
-  const filterArray = tent.filter((element) => {
-    element >= element
-  })
+  var search = document.getElementById("search").value;
+var category  = ["tents", "backpacks", "sleeping-bags", "hammocks"]
+        
+const mainElement = document.querySelector(".search-results");
 
-  console.log(filterArray);
-};
+async function getData(category){
+    const data = await fetch(`https://wdd330-backend.onrender.com/products/search/${category}`)
+        if (data.ok) {
+            const dataJson = await data.json()
+            const result = dataJson.Result;
+            return result
+        }else{
+            throw{name: "serviceError", message: jsonResponse}
+        }
+}
+ 
+let filter = async (category) => {
+    
+    let API = await getData(category);
+    let display = API.filter((object)=>{
+        if(object.Name.toLowerCase().includes(search.toLowerCase())){
+            return object;
+        }else{
+          return {Name: `Not found`, FinalPrice: `Not found`}
+        }
+    }).map((object) => {
+        return `
+        <a href="../product_pages/index.html?product=${object.Id}">
+        <div class="search-result">
+        <p>${object.Name}</p>
+        <p>Prize: ${object.FinalPrice}</p>
+        </div>
+        </a>
+        <hr>`
+    }).join("");
+
+    mainElement.innerHTML = display;
+}
+category.forEach((element)=>{
+  filter(element);
+
+})
 }
 
 export function updateCartIcon() {
