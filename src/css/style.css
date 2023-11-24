@@ -49,7 +49,7 @@ header {
   color: var(--font-body);
 }
 .hero {
-  position: relative;
+  position: absolute;
 }
 .hero .logo {
   position: absolute;
@@ -276,7 +276,106 @@ button {
   margin: auto;
   text-align: right;
 }
+/* search result */
+.search-box {
+  border: 1px solid #b7b5b5;
+  height: 30px;
+  width: 100%;
+  background-color: white;
+  border-radius: 50px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.search-icon {
+  padding-left: 15px;
+}
+
+.search-box input[type="text"] {
+  border: none;
+  margin-left: 20px;
+  font-family: "Inter";
+  width: 70%;
+  border-radius: 20px;
+
+}
+
+
+.search-result:hover:last-child {
+  border-bottom: none;
+  /* border-radius: 0px 0px 20px 20px; */
+}
+
+.search-result {
+  width: 100%;
+  border-bottom: 1px solid #b7b5b5;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+ 
+}
+
+.search-result:hover {
+  background-color: #f7f7f7;
+  font-size: 20px;
+}
+
+.search-box input[type="text"]:focus {
+  outline-width: 0;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: auto;
+  border-color: #b7b5b5;
+  border-style: solid;
+  background-color: white;
+  border-width: 0px 1px 1px 1px;
+  border-radius: 0px 0px 20px 20px;
+  -webkit-box-shadow: 10px 13px 0px 0px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 10px 13px 0px 0px rgba(0, 0, 0, 0.07);
+  box-shadow: 10px 13px 0px 0px rgba(0, 0, 0, 0.07);
+  overflow-y: scroll;
+  max-height: 200px;
+}
+.search-container a, .search-container p {
+  /* border-bottom: 1px solid #b7b5b5; */
+  background-color: white;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.search-container p {
+  margin: 0;
+  /* padding: 30px 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px; */
+}
+
+.search-container a:last-child {
+  border: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.search-container {
+  border-radius: 20px;
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  column-gap: 20px;
+  z-index: 1;
+  
+}
+main{
+  /* position: absolute; */
+  z-index: 10;
+
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
